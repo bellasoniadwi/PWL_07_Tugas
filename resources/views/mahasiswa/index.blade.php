@@ -17,14 +17,26 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    
+    <form method="get" action="{{ url('cari') }}">
+        <div class="form-group w-100 mb-3">
+            {{-- <label for="search" class="d-block mr-2">Pencarian</label> --}}
+            <input type="search" name="search" class="form-control w-75 d-inline" id="search" placeholder="Cari Nama Mahasiswa">
+            <span class = "form-group-btn">
+                <button type="submit" class="btn btn-dark">Cari Disini</button>
+            </span>
+        </div>
+    </form>
 
     <table class="table table-bordered">
         <tr>
             <th>Nim</th>
             <th>Nama</th>
+            <th>Tanggal Lahir</th>
             <th>Kelas</th>
             <th>Jurusan</th>
             <th>No_Handphone</th>
+            <th>Email</th>
             <th width="280px">Action</th>
         </tr>
 
@@ -32,9 +44,11 @@
         <tr>
             <td>{{ $Mahasiswa->nim }}</td>
             <td>{{ $Mahasiswa->nama }}</td>
+            <td>{{ $Mahasiswa->tanggal_lahir }}</td>
             <td>{{ $Mahasiswa->kelas }}</td>
             <td>{{ $Mahasiswa->jurusan }}</td>
             <td>{{ $Mahasiswa->no_handphone }}</td>
+            <td>{{ $Mahasiswa->email }}</td>
             <td>
                 <form action="{{ route('mahasiswa.destroy',$Mahasiswa->nim) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('mahasiswa.show',$Mahasiswa->nim) }}">Show</a>
@@ -48,4 +62,7 @@
         </tr>
         @endforeach
     </table>
+    <div class="d-flex justify-content-center">
+        {{$mahasiswa->links()}}
+    </div>
 @endsection
