@@ -17,10 +17,9 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    
+    {{-- Menampilkan Search Box Pada Halaman Utama --}}
     <form method="get" action="{{ url('cari') }}">
         <div class="form-group w-100 mb-3">
-            {{-- <label for="search" class="d-block mr-2">Pencarian</label> --}}
             <input type="search" name="search" class="form-control w-75 d-inline" id="search" placeholder="Cari Nama Mahasiswa">
             <span class = "form-group-btn">
                 <button type="submit" class="btn btn-dark">Cari Disini</button>
