@@ -28,7 +28,7 @@
         </div>
     </form>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered text-center">
         <tr>
             <th>Nim</th>
             <th>Nama</th>
@@ -62,6 +62,15 @@
         </tr>
         @endforeach
     </table>
+    <div>
+        <p>Showing
+        {{$mahasiswa->firstItem()}}
+        to
+        {{$mahasiswa->lastItem()}}
+        of
+        {{$mahasiswa->total()}}
+        entries</p>
+     </div>
     <div class="d-flex justify-content-center">
         {{$mahasiswa->links()}}
     </div>
